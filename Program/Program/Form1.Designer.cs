@@ -64,6 +64,7 @@
             this.StartMoveBtn.TabIndex = 2;
             this.StartMoveBtn.Text = "Начать захват";
             this.StartMoveBtn.UseVisualStyleBackColor = true;
+            this.StartMoveBtn.Click += new System.EventHandler(this.StartMoveBtn_Click);
             this.StartMoveBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WindowKey_Down);
             // 
             // MainWindow

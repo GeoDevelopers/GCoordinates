@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Program
@@ -41,7 +42,7 @@ namespace Program
          * области, в которой передвигается курсор.
          * Выражено двумя переменными X и Y.
          */
-        private int AreaCursorX1, AreaCursorY1;
+        private int AreaCursorX1 = 0, AreaCursorY1 = 0;
 
         /**
          * Второй угол передвижения курсора
@@ -51,7 +52,7 @@ namespace Program
          * области, в которой передвигается курсор.
          * Выражено двумя переменными X и Y.
          */
-        private int AreaCursorX2, AreaCursorY2;
+        private int AreaCursorX2 = 0, AreaCursorY2 = 0;
 
         /**
          * Первый угол захвата координат
@@ -61,7 +62,7 @@ namespace Program
          * области, в которой идет захват.
          * Выражено двумя переменными X и Y.
          */
-        private int AreaCoordinatesX1, AreaCoordinatesY1;
+        private int AreaCoordinatesX1 = 0, AreaCoordinatesY1 = 0;
 
         /**
          * Второй угол захвата координат
@@ -71,7 +72,7 @@ namespace Program
          * области, в которой идет захват.
          * Выражено двумя переменными X и Y.
          */
-        private int AreaCoordinatesX2, AreaCoordinatesY2;
+        private int AreaCoordinatesX2 = 0, AreaCoordinatesY2 = 0;
 
 
 
@@ -117,6 +118,18 @@ namespace Program
                         IsGetArea = false;
                         this.Opacity = 1;
                         break;
+                }
+            }
+        }
+
+        private void StartMoveBtn_Click(object sender, EventArgs e)
+        {
+            for(int i=AreaCursorX1; i<=AreaCursorX2; i++)
+            {
+                for(int j=AreaCursorY1; j<=AreaCursorY2; j++)
+                {
+                    Cursor.Position = new Point(i, j);
+                    Thread.Sleep(1);
                 }
             }
         }
