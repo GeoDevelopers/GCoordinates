@@ -90,6 +90,14 @@ namespace Program
             GetAreaState = 1;
         }
 
+
+        /**
+         * Событие нажатия клавиши
+         * 
+         * При установленном флаге получения областей и, если нажата
+         * клавиша C, текущее место положение курсора 
+         * будет запомнено как угол области.
+         */
         private void WindowKey_Down(object sender, KeyEventArgs e)
         {
             if(IsGetArea && e.KeyCode==Keys.C)
@@ -122,6 +130,12 @@ namespace Program
             }
         }
 
+        /**
+         * Событие нажатия кнопки "Начать захват"
+         * 
+         * Курсор начинает движение по полученной области
+         * Для наглядного отображения добавлена задержка
+         */
         private void StartMoveBtn_Click(object sender, EventArgs e)
         {
             for(int i=AreaCursorX1; i<=AreaCursorX2; i++)
