@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 namespace Program
 {
@@ -85,9 +87,25 @@ namespace Program
          */
         private void GetPlaceBtn_Click(object sender, EventArgs e)
         {
-            IsGetArea = true;
-            this.Opacity = 0.8;             //this используется для обращение к объекту формы. Opacity-прозрачность
-            GetAreaState = 1;
+            if(IsGisReady())
+            {
+                IntPtr deskriptor = process.MainWindowHandle;
+                ShowWindow(deskriptor, 1);
+                ShowWindow(deskriptor, 3);
+                this.Hide();
+                this.Show();
+
+                IsGetArea = true;
+                this.Opacity = 0.8;             //this используется для обращение к объекту формы. Opacity-прозрачность
+                GetAreaState = 1;
+            }
+            else
+            {
+                MessageBox.Show("Не удалось найти процеес Google Earth");
+            }
+
+
+            
         }
 
 
@@ -138,20 +156,72 @@ namespace Program
          */
         private void StartMoveBtn_Click(object sender, EventArgs e)
         {
-            for(int i=AreaCursorX1; i<=AreaCursorX2; i++)
+            if (IsGisReady())
             {
-                for(int j=AreaCursorY1; j<=AreaCursorY2; j++)
+                IntPtr deskriptor = process.MainWindowHandle;
+                ShowWindow(deskriptor, 1);
+                ShowWindow(deskriptor, 3);
+                for (int i = AreaCursorX1; i <= AreaCursorX2; i+=20)
                 {
-                    Cursor.Position = new Point(i, j);
-                    Thread.Sleep(1);
+                    for (int j = AreaCursorY1; j <= AreaCursorY2; j+=20)
+                    {
+                        Cursor.Position = new Point(i, j);
+                        Thread.Sleep(1);
+                    }
                 }
+                this.Hide();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Не удалось найти процеес Google Earth");
             }
         }
 
 
 
 
+        /**
+         * Проверка готовности GoogleEarth
+         * 
+         * Возвращает true, если процесс GoogleEarth запущен
+         * и false в обратном случае.
+         */
+        private bool IsGisReady()
+        {
+            bool check = false;
+            Process[] proclist = Process.GetProcessesByName("googleearth");
+            if(proclist.Length!=0)
+            {
+                check = true;
+                process = proclist[0];
+            }
 
+            return check;
+        }
+
+
+        /**
+         * Процесс Google Earth
+         * 
+         * Объект процесса Goole Earth. Присваивается каждый раз, при вызове 
+         * функции IsGisReady(). 
+         * ВАЖНО!!! Это первый процесс из списка процессов, с именем googleearth.
+         */
+        private Process process;
+
+
+
+
+        /**
+         * Функция вывода окна Google Earth на передний план
+         * 
+         * Импортируется функция WinAPI, для работы с окнами.
+         * IntPtr hWnd - дескриптор окна процесса
+         * int nCmdShow - способ вывода окна
+         */
+        [DllImport("user32.dll", SetLastError = true)]
+        internal static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
     }
 }
