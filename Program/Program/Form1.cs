@@ -161,12 +161,19 @@ namespace Program
                 IntPtr deskriptor = process.MainWindowHandle;
                 ShowWindow(deskriptor, 1);
                 ShowWindow(deskriptor, 3);
-                for (int i = AreaCursorX1; i <= AreaCursorX2; i+=20)
+
+                Screeneng se = new Screeneng();
+                se.CreateBitmap(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2);
+                int iter = 0;
+
+                for (int i = AreaCursorX1; i <= AreaCursorX2; i += 20)
                 {
-                    for (int j = AreaCursorY1; j <= AreaCursorY2; j+=20)
+                    for (int j = AreaCursorY1; j <= AreaCursorY2; j += 20)
                     {
                         Cursor.Position = new Point(i, j);
-                        Thread.Sleep(1);
+
+                        se.SaveCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2, iter.ToString());
+                        iter++;
                     }
                 }
                 this.Hide();
