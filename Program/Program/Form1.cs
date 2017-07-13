@@ -18,6 +18,7 @@ namespace Program
         public MainWindow()
         {
             InitializeComponent();
+            ImageFolderBrowser.SelectedPath = "images";
         }
 
         /**
@@ -165,14 +166,14 @@ namespace Program
                 Screeneng se = new Screeneng();
                 se.CreateBitmap(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2);
                 int iter = 0;
-
+                string path;
                 for (int i = AreaCursorX1; i <= AreaCursorX2; i += 20)
                 {
                     for (int j = AreaCursorY1; j <= AreaCursorY2; j += 20)
                     {
                         Cursor.Position = new Point(i, j);
-
-                        se.SaveCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2, iter.ToString());
+                        path = ImageFolderBrowser.SelectedPath+"\\"+iter;
+                        se.SaveCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2, path);
                         iter++;
                     }
                 }
@@ -229,6 +230,14 @@ namespace Program
          */
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (ImageFolderBrowser.ShowDialog() == DialogResult.OK)
+            {
+                MessageBox.Show(ImageFolderBrowser.SelectedPath);
+            }
+        }
 
     }
 }

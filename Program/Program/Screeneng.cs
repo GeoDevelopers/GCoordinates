@@ -96,7 +96,7 @@ namespace Program
             try
             {
                 screenG.CopyFromScreen(x1, y1, 0, 0, size, CopyPixelOperation.SourceCopy);
-                bitmap.Save("images\\" + filename + ".jpg", ImageFormat.Jpeg);
+                bitmap.Save(filename + ".jpg", ImageFormat.Jpeg);
             }
             catch (Exception ex)
             {

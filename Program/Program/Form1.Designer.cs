@@ -32,6 +32,8 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.GetAreaBtn = new System.Windows.Forms.Button();
             this.StartMoveBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ImageFolderBrowser = new System.Windows.Forms.FolderBrowserDialog();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -46,7 +48,7 @@
             // GetAreaBtn
             // 
             this.GetAreaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GetAreaBtn.Location = new System.Drawing.Point(22, 248);
+            this.GetAreaBtn.Location = new System.Drawing.Point(399, 200);
             this.GetAreaBtn.Name = "GetAreaBtn";
             this.GetAreaBtn.Size = new System.Drawing.Size(219, 42);
             this.GetAreaBtn.TabIndex = 1;
@@ -67,11 +69,23 @@
             this.StartMoveBtn.Click += new System.EventHandler(this.StartMoveBtn_Click);
             this.StartMoveBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WindowKey_Down);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(399, 297);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(219, 63);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Выбрать папку для сохранения изображений";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 413);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.StartMoveBtn);
             this.Controls.Add(this.GetAreaBtn);
             this.Controls.Add(this.richTextBox1);
@@ -88,6 +102,8 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button GetAreaBtn;
         private System.Windows.Forms.Button StartMoveBtn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FolderBrowserDialog ImageFolderBrowser;
     }
 }
 
