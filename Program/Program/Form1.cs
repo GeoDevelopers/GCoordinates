@@ -10,6 +10,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace Program
 {
@@ -19,6 +20,7 @@ namespace Program
         {
             InitializeComponent();
             ImageFolderBrowser.SelectedPath = "images";
+            LabelImagePath.Text ="Текущая папка сохранения изображений: \n"+ ImageFolderBrowser.SelectedPath;
         }
 
         /**
@@ -167,14 +169,16 @@ namespace Program
                 se.CreateBitmap(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2);
                 int iter = 0;
                 string path;
-                for (int i = AreaCursorX1; i <= AreaCursorX2; i += 20)
+                for (int i = AreaCursorX1; i <= AreaCursorX2; i += (int)CounterThickness.Value)
                 {
-                    for (int j = AreaCursorY1; j <= AreaCursorY2; j += 20)
+                    for (int j = AreaCursorY1; j <= AreaCursorY2; j += (int)CounterThickness.Value)
                     {
+                        Thread.Sleep(100);
                         Cursor.Position = new Point(i, j);
                         path = ImageFolderBrowser.SelectedPath+"\\"+iter;
                         se.SaveCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2, path);
                         iter++;
+                        
                     }
                 }
                 this.Hide();
@@ -231,12 +235,19 @@ namespace Program
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ChooseImageFolderBtn_Click(object sender, EventArgs e)
         {
             if (ImageFolderBrowser.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show(ImageFolderBrowser.SelectedPath);
+                LabelImagePath.Text = "Текущая папка сохранения изображений: \n" + ImageFolderBrowser.SelectedPath;
             }
+        }
+
+        private void ClearImageFolderBtn_Click(object sender, EventArgs e)
+        {
+            var dirInfo = new DirectoryInfo(@ImageFolderBrowser.SelectedPath);
+            foreach (var file in dirInfo.GetFiles())
+                file.Delete();
         }
 
     }
