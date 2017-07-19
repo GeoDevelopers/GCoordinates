@@ -1,0 +1,12 @@
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/bin/Debug/Program.exe.config
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/bin/Debug/Program.exe
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/bin/Debug/Program.pdb
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/bin/Debug/Newtonsoft.Json.dll
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/bin/Debug/Newtonsoft.Json.xml
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/obj/Debug/Program.csprojResolveAssemblyReference.cache
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/obj/Debug/Program.MainWindow.resources
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/obj/Debug/Program.Properties.Resources.resources
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/obj/Debug/Program.csproj.GenerateResource.Cache
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/obj/Debug/Program.csproj.CoreCompileInputs.cache
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/obj/Debug/Program.exe
+/Users/tuan/Desktop/GCoordinates-Cyril_Branch/Program/Program/obj/Debug/Program.pdb
