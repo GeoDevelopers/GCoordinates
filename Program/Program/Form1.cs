@@ -106,15 +106,20 @@ namespace Program
 
                 if(form.IsDone)
                 {
-                    AreaCursorX1 = form.Left;
-                    AreaCursorX2 = form.Right;
-                    AreaCursorY1 = MapBitmap.Height-form.Top;
-                    AreaCursorY2 = MapBitmap.Height;
+
+                    AreaCoordinatesX1 = CursorArea.Left+  form.Left;
+                    AreaCoordinatesX2 = CursorArea.Left + form.Right;
+                    AreaCoordinatesY1 = CursorArea.Top + (MapBitmap.Height - form.Top);
+                    AreaCoordinatesY2 = CursorArea.Bottom;
 
                     CutView.Image = form.CutBitmap;
 
+
+                    StartMoveBtn.Enabled = true;
+
                 }
                 
+
 
 
 
@@ -140,46 +145,6 @@ namespace Program
             
         }
 
-
-        /**
-         * Событие нажатия клавиши
-         * 
-         * При установленном флаге получения областей и, если нажата
-         * клавиша C, текущее место положение курсора 
-         * будет запомнено как угол области.
-         */
-        private void WindowKey_Down(object sender, KeyEventArgs e)
-        {
-            if(IsGetArea && e.KeyCode==Keys.C)
-            {
-                switch(GetAreaState)
-                {
-                    /*case 1:
-                        AreaCursorX1 = Cursor.Position.X;
-                        AreaCursorY1 = Cursor.Position.Y;
-                        GetAreaState = 2;
-                        break;
-                    case 2:
-                        AreaCursorX2 = Cursor.Position.X;
-                        AreaCursorY2 = Cursor.Position.Y;
-                        GetAreaState = 3;
-                        break;*/
-                    case 3:
-                        AreaCoordinatesX1 = Cursor.Position.X;
-                        AreaCoordinatesY1 = Cursor.Position.Y;
-                        GetAreaState = 4;
-                        break;
-                    case 4:
-                        AreaCoordinatesX2 = Cursor.Position.X;
-                        AreaCoordinatesY2 = Cursor.Position.Y;
-                        GetAreaState = 0;
-                        IsGetArea = false;
-                        this.Opacity = 1;
-                        break;
-                }
-            }
-        }
-
         /**
          * Событие нажатия кнопки "Начать захват"
          * 
@@ -195,6 +160,7 @@ namespace Program
                 ShowWindow(deskriptor, 3);
 
                 Screeneng se = new Screeneng();
+
                 se.CreateBitmap(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2);
                 int iter = 0;
                 string path;
@@ -202,7 +168,6 @@ namespace Program
                 {
                     for (int j = CursorArea.Top; j < CursorArea.Bottom; j += (int)CounterThickness.Value)
                     {
-                        Thread.Sleep(10);
                         Cursor.Position = new Point(i, j);
                         path = ImageFolderBrowser.SelectedPath+"\\"+iter;
                         se.SaveCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2, path);
@@ -315,7 +280,7 @@ namespace Program
 
                 MapView.Image = Image.FromHbitmap(ResultBitmap.GetHbitmap());
 
-
+                GetAreaBtn.Enabled = true;
                 
             }
             else

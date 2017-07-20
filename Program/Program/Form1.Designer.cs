@@ -60,27 +60,27 @@
             // 
             // GetAreaBtn
             // 
+            this.GetAreaBtn.Enabled = false;
             this.GetAreaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GetAreaBtn.Location = new System.Drawing.Point(22, 410);
             this.GetAreaBtn.Name = "GetAreaBtn";
             this.GetAreaBtn.Size = new System.Drawing.Size(416, 42);
             this.GetAreaBtn.TabIndex = 1;
-            this.GetAreaBtn.Text = "Выбрать точки";
+            this.GetAreaBtn.Text = "Выбрать область сканирования";
             this.GetAreaBtn.UseVisualStyleBackColor = true;
             this.GetAreaBtn.Click += new System.EventHandler(this.GetPlaceBtn_Click);
-            this.GetAreaBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WindowKey_Down);
             // 
             // StartMoveBtn
             // 
+            this.StartMoveBtn.Enabled = false;
             this.StartMoveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StartMoveBtn.Location = new System.Drawing.Point(22, 833);
+            this.StartMoveBtn.Location = new System.Drawing.Point(22, 912);
             this.StartMoveBtn.Name = "StartMoveBtn";
             this.StartMoveBtn.Size = new System.Drawing.Size(416, 42);
             this.StartMoveBtn.TabIndex = 2;
             this.StartMoveBtn.Text = "Начать захват";
             this.StartMoveBtn.UseVisualStyleBackColor = true;
             this.StartMoveBtn.Click += new System.EventHandler(this.StartMoveBtn_Click);
-            this.StartMoveBtn.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WindowKey_Down);
             // 
             // ChooseImageFolderBtn
             // 
@@ -211,7 +211,7 @@
             this.CutView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CutView.Location = new System.Drawing.Point(22, 458);
             this.CutView.Name = "CutView";
-            this.CutView.Size = new System.Drawing.Size(416, 50);
+            this.CutView.Size = new System.Drawing.Size(416, 33);
             this.CutView.TabIndex = 14;
             this.CutView.TabStop = false;
             // 
@@ -237,7 +237,6 @@
             this.Name = "MainWindow";
             this.ShowIcon = false;
             this.Text = "GCoordinates";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.WindowKey_Down);
             ((System.ComponentModel.ISupportInitialize)(this.CounterThickness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CutView)).EndInit();
