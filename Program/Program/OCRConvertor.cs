@@ -40,13 +40,17 @@ namespace Program
 				using (StreamWriter sw = File.CreateText("./file.txt"))
 				{
                     sw.WriteLine(ocrText);
+                    sw.Close();
 				}
 			}
 
             using (StreamWriter sw = File.AppendText("./file.txt"))
 			{
 				sw.WriteLine(ocrText);
+                sw.Close();
 			}
+
+
         }
     }
 }

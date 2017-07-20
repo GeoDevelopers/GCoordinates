@@ -3,7 +3,7 @@
     <Files>
       <File FileName="Program/Form1.cs" Line="1" Column="1" />
       <File FileName="Program/Screeneng.cs" Line="106" Column="28" />
-      <File FileName="Program/OCRConvertor.cs" Line="13" Column="31" />
+      <File FileName="Program/OCRConvertor.cs" Line="50" Column="28" />
       <File FileName="Program/Form1.resx" Line="1" Column="1" />
       <File FileName="Program/Form1.Designer.cs" Line="1" Column="1" />
       <File FileName="Program/App.config" Line="1" Column="1" />
