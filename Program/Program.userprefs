@@ -1,18 +1,12 @@
 ﻿<Properties StartupConfiguration="{903633F5-1D37-4A0D-A34B-47B1E3DF823C}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Program/OCRConvertor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Program/Screeneng.cs">
     <Files>
-      <File FileName="Program/Form1.cs" Line="1" Column="1" />
-      <File FileName="Program/Screeneng.cs" Line="106" Column="28" />
-      <File FileName="Program/OCRConvertor.cs" Line="50" Column="28" />
-      <File FileName="Program/Form1.resx" Line="1" Column="1" />
-      <File FileName="Program/Form1.Designer.cs" Line="1" Column="1" />
-      <File FileName="Program/App.config" Line="1" Column="1" />
-      <File FileName="Program/OCRResult.cs" Line="22" Column="1" />
-      <File FileName="Program/packages.config" Line="1" Column="1" />
+      <File FileName="Program/OCRConvertor.cs" Line="5" Column="18" />
+      <File FileName="Program/OCRResult.cs" Line="1" Column="1" />
+      <File FileName="Program/Screeneng.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Program PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

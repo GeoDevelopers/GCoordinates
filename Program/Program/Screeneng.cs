@@ -9,8 +9,6 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
-using System.IO;
-
 namespace Program
 {
     class Screeneng
@@ -93,17 +91,26 @@ namespace Program
             size = new Size(width, height);
             screenG.CopyFromScreen(x1, y1, 0, 0, size, CopyPixelOperation.SourceCopy);
         }
+
+
+        public static Bitmap GetMap(int x1, int y1, int x2, int y2)
+        {
+            int width = x2 - x1;
+            int height = y2 - y1;
+            Bitmap bitmap = new Bitmap(width, height);
+            Graphics screenG = Graphics.FromImage(bitmap);
+            bitmap = new Bitmap(width, height);
+            screenG = Graphics.FromImage(bitmap);
+            Size size = new Size(width, height);
+            screenG.CopyFromScreen(x1, y1, 0, 0, size, CopyPixelOperation.SourceCopy);
+            return bitmap;
+        }
         public void SaveCoordinates(int x1, int y1, int x2, int y2, string filename)
         {
-            MemoryStream stream = new MemoryStream();
-
             try
             {
                 screenG.CopyFromScreen(x1, y1, 0, 0, size, CopyPixelOperation.SourceCopy);
-                bitmap.Save(stream, ImageFormat.Jpeg);
-                byte[] imageBytes = stream.ToArray();
-                OCRConvertor convertor = new OCRConvertor();
-                convertor.ConverToText(imageBytes);
+                bitmap.Save(filename + ".jpg", ImageFormat.Jpeg);
             }
             catch (Exception ex)
             {
