@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.IO;
+using System.Drawing.Imaging;
 
 namespace Program
 {
@@ -430,6 +431,45 @@ namespace Program
         private void CounterThickness_ValueChanged(object sender, EventArgs e)
         {
             Draw();
+        }
+
+        private void SaveCoordinatesTextBtn_Click(object sender, EventArgs e)
+        {
+            if (IsGisReady())
+            {
+                IntPtr deskriptor = process.MainWindowHandle;
+                ShowWindow(deskriptor, 1);
+                ShowWindow(deskriptor, 3);
+
+                Screeneng se = new Screeneng();
+                
+                se.CreateBitmap(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2);
+
+                MemoryStream stream = new MemoryStream();
+                byte[] imageBytes;
+
+                string path;
+
+
+                for (int i = CursorArea.Left; i < CursorArea.Right; i += (int)CounterThickness.Value)
+                {
+                    for (int j = CursorArea.Top; j < CursorArea.Bottom; j += (int)CounterThickness.Value)
+                    {
+                        Cursor.Position = new Point(i, j);
+                        //path = ImageFolderBrowser.SelectedPath + "\\" + iter;
+                        se.GetCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2).Save(stream, ImageFormat.Jpeg);
+                        imageBytes = stream.ToArray();
+                        OCRConvertor convertor = new OCRConvertor();
+                        convertor.ConverToText(imageBytes);
+                    }
+                }
+                this.Hide();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Не удалось найти процеес Google Earth");
+            }
         }
 
     }

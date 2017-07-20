@@ -44,6 +44,7 @@
             this.CheckBoxGridView = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CutView = new System.Windows.Forms.PictureBox();
+            this.SaveCoordinatesTextBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CounterThickness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MapView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CutView)).BeginInit();
@@ -215,11 +216,22 @@
             this.CutView.TabIndex = 14;
             this.CutView.TabStop = false;
             // 
+            // SaveCoordinatesTextBtn
+            // 
+            this.SaveCoordinatesTextBtn.Location = new System.Drawing.Point(22, 971);
+            this.SaveCoordinatesTextBtn.Name = "SaveCoordinatesTextBtn";
+            this.SaveCoordinatesTextBtn.Size = new System.Drawing.Size(416, 45);
+            this.SaveCoordinatesTextBtn.TabIndex = 15;
+            this.SaveCoordinatesTextBtn.Text = "Получить текст координат";
+            this.SaveCoordinatesTextBtn.UseVisualStyleBackColor = true;
+            this.SaveCoordinatesTextBtn.Click += new System.EventHandler(this.SaveCoordinatesTextBtn_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.SaveCoordinatesTextBtn);
             this.Controls.Add(this.CutView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CheckBoxGridView);
@@ -262,6 +274,7 @@
         private System.Windows.Forms.CheckBox CheckBoxGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox CutView;
+        private System.Windows.Forms.Button SaveCoordinatesTextBtn;
     }
 }
 
