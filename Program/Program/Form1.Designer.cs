@@ -85,6 +85,7 @@
             // 
             // ChooseImageFolderBtn
             // 
+            this.ChooseImageFolderBtn.Enabled = false;
             this.ChooseImageFolderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ChooseImageFolderBtn.Location = new System.Drawing.Point(22, 558);
             this.ChooseImageFolderBtn.Name = "ChooseImageFolderBtn";
@@ -130,6 +131,7 @@
             // 
             // ClearImageFolderBtn
             // 
+            this.ClearImageFolderBtn.Enabled = false;
             this.ClearImageFolderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ClearImageFolderBtn.Location = new System.Drawing.Point(219, 696);
             this.ClearImageFolderBtn.Name = "ClearImageFolderBtn";

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.Windows.Forms;
+using System.IO;
 namespace Program
 {
     class Screeneng
@@ -111,6 +112,28 @@ namespace Program
             {
                 screenG.CopyFromScreen(x1, y1, 0, 0, size, CopyPixelOperation.SourceCopy);
                 bitmap.Save(filename + ".jpg", ImageFormat.Jpeg);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //screenG.Dispose();
+                //bitmap.Dispose();
+            }
+        }
+        public void SaveCoordinates2(int x1, int y1, int x2, int y2, string filename)
+        {
+            MemoryStream stream = new MemoryStream();
+
+            try
+            {
+                screenG.CopyFromScreen(x1, y1, 0, 0, size, CopyPixelOperation.SourceCopy);
+                bitmap.Save(stream, ImageFormat.Jpeg);
+                byte[] imageBytes = stream.ToArray();
+                OCRConvertor convertor = new OCRConvertor();
+                convertor.ConverToText(imageBytes);
             }
             catch (Exception ex)
             {

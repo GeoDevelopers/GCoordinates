@@ -9,7 +9,7 @@ namespace Program
         public async void ConverToText(byte[] imageBytes)
         {
 
-            string apikey = "helloworld";
+            string apikey = "copyfishonly23cr";
 
             string ocrText = "";
 
@@ -22,7 +22,7 @@ namespace Program
 
             request.Add(new ByteArrayContent(imageBytes, 0, imageBytes.Length), "image", "image.jpg");
 
-            HttpResponseMessage response = await httpClient.PostAsync("https://api.ocr.space/Parse/Image", request);
+            HttpResponseMessage response = await httpClient.PostAsync("https://apipro1.ocr.space/parse/image", request);
 
             string result = await response.Content.ReadAsStringAsync();
 

@@ -20,8 +20,7 @@ namespace Program
         public MainWindow()
         {
             InitializeComponent();
-            ImageFolderBrowser.SelectedPath = "images";
-            LabelImagePath.Text ="Текущая папка сохранения изображений: \n"+ ImageFolderBrowser.SelectedPath;
+            LabelImagePath.Text ="Текущая папка сохранения изображений: \n отсутствует";
             MapView.SizeMode = PictureBoxSizeMode.StretchImage;
             this.WindowState = FormWindowState.Maximized;
             
@@ -116,7 +115,7 @@ namespace Program
                     CutView.Image = form.CutBitmap;
 
 
-                    StartMoveBtn.Enabled = true;
+                    ChooseImageFolderBtn.Enabled = true;
 
                 }
                 
@@ -169,6 +168,7 @@ namespace Program
                 {
                     for (int j = CursorArea.Top; j < CursorArea.Bottom; j += (int)CounterThickness.Value)
                     {
+                        Thread.Sleep(50);
                         Cursor.Position = new Point(i, j);
                         path = ImageFolderBrowser.SelectedPath+"\\"+iter;
                         se.SaveCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2, path);
@@ -235,6 +235,7 @@ namespace Program
             if (ImageFolderBrowser.ShowDialog() == DialogResult.OK)
             {
                 LabelImagePath.Text = "Текущая папка сохранения изображений: \n" + ImageFolderBrowser.SelectedPath;
+                StartMoveBtn.Enabled = true;
             }
         }
 
@@ -440,27 +441,32 @@ namespace Program
                 IntPtr deskriptor = process.MainWindowHandle;
                 ShowWindow(deskriptor, 1);
                 ShowWindow(deskriptor, 3);
-
+                
                 Screeneng se = new Screeneng();
                 
                 se.CreateBitmap(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2);
 
-                MemoryStream stream = new MemoryStream();
-                byte[] imageBytes;
+                //MemoryStream stream = new MemoryStream();
+                //byte[] imageBytes;
 
                 string path;
-
+                //int iter = 0;
 
                 for (int i = CursorArea.Left; i < CursorArea.Right; i += (int)CounterThickness.Value)
                 {
                     for (int j = CursorArea.Top; j < CursorArea.Bottom; j += (int)CounterThickness.Value)
                     {
+                        Thread.Sleep(100);
                         Cursor.Position = new Point(i, j);
-                        //path = ImageFolderBrowser.SelectedPath + "\\" + iter;
-                        se.GetCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2).Save(stream, ImageFormat.Jpeg);
-                        imageBytes = stream.ToArray();
+                        path = "images\\";
+
+                        se.SaveCoordinates2(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2, path);
+                        //se.GetCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2).Save(stream, ImageFormat.Jpeg);
+                        ////se.GetCoordinates(AreaCoordinatesX1, AreaCoordinatesY1, AreaCoordinatesX2, AreaCoordinatesY2).Save(path+".jpg", ImageFormat.Jpeg);
+                        /*imageBytes = stream.ToArray();
                         OCRConvertor convertor = new OCRConvertor();
-                        convertor.ConverToText(imageBytes);
+                        convertor.ConverToText(imageBytes);*/
+                        //iter++;
                     }
                 }
                 this.Hide();
