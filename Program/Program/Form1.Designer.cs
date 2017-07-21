@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.GetAreaBtn = new System.Windows.Forms.Button();
             this.StartMoveBtn = new System.Windows.Forms.Button();
             this.ChooseImageFolderBtn = new System.Windows.Forms.Button();
@@ -50,20 +48,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.CutView)).BeginInit();
             this.SuspendLayout();
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(22, 12);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(416, 137);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            // 
             // GetAreaBtn
             // 
             this.GetAreaBtn.Enabled = false;
             this.GetAreaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GetAreaBtn.Location = new System.Drawing.Point(22, 410);
+            this.GetAreaBtn.Location = new System.Drawing.Point(24, 316);
             this.GetAreaBtn.Name = "GetAreaBtn";
             this.GetAreaBtn.Size = new System.Drawing.Size(416, 42);
             this.GetAreaBtn.TabIndex = 1;
@@ -75,11 +64,11 @@
             // 
             this.StartMoveBtn.Enabled = false;
             this.StartMoveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StartMoveBtn.Location = new System.Drawing.Point(22, 912);
+            this.StartMoveBtn.Location = new System.Drawing.Point(24, 750);
             this.StartMoveBtn.Name = "StartMoveBtn";
             this.StartMoveBtn.Size = new System.Drawing.Size(416, 42);
             this.StartMoveBtn.TabIndex = 2;
-            this.StartMoveBtn.Text = "Начать захват";
+            this.StartMoveBtn.Text = "Начать захват изображений";
             this.StartMoveBtn.UseVisualStyleBackColor = true;
             this.StartMoveBtn.Click += new System.EventHandler(this.StartMoveBtn_Click);
             // 
@@ -87,7 +76,7 @@
             // 
             this.ChooseImageFolderBtn.Enabled = false;
             this.ChooseImageFolderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ChooseImageFolderBtn.Location = new System.Drawing.Point(22, 558);
+            this.ChooseImageFolderBtn.Location = new System.Drawing.Point(24, 425);
             this.ChooseImageFolderBtn.Name = "ChooseImageFolderBtn";
             this.ChooseImageFolderBtn.Size = new System.Drawing.Size(416, 42);
             this.ChooseImageFolderBtn.TabIndex = 3;
@@ -99,7 +88,7 @@
             // 
             this.LabelImagePath.AutoSize = true;
             this.LabelImagePath.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelImagePath.Location = new System.Drawing.Point(19, 603);
+            this.LabelImagePath.Location = new System.Drawing.Point(21, 470);
             this.LabelImagePath.Name = "LabelImagePath";
             this.LabelImagePath.Size = new System.Drawing.Size(314, 17);
             this.LabelImagePath.TabIndex = 4;
@@ -108,7 +97,7 @@
             // CounterThickness
             // 
             this.CounterThickness.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CounterThickness.Location = new System.Drawing.Point(185, 235);
+            this.CounterThickness.Location = new System.Drawing.Point(187, 122);
             this.CounterThickness.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -133,7 +122,7 @@
             // 
             this.ClearImageFolderBtn.Enabled = false;
             this.ClearImageFolderBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ClearImageFolderBtn.Location = new System.Drawing.Point(219, 696);
+            this.ClearImageFolderBtn.Location = new System.Drawing.Point(221, 579);
             this.ClearImageFolderBtn.Name = "ClearImageFolderBtn";
             this.ClearImageFolderBtn.Size = new System.Drawing.Size(219, 42);
             this.ClearImageFolderBtn.TabIndex = 7;
@@ -144,7 +133,7 @@
             // GetAutoAreaBtn
             // 
             this.GetAutoAreaBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GetAutoAreaBtn.Location = new System.Drawing.Point(22, 172);
+            this.GetAutoAreaBtn.Location = new System.Drawing.Point(24, 59);
             this.GetAutoAreaBtn.Name = "GetAutoAreaBtn";
             this.GetAutoAreaBtn.Size = new System.Drawing.Size(416, 42);
             this.GetAutoAreaBtn.TabIndex = 8;
@@ -167,7 +156,7 @@
             this.CheckBoxMap.Checked = true;
             this.CheckBoxMap.CheckState = System.Windows.Forms.CheckState.Checked;
             this.CheckBoxMap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CheckBoxMap.Location = new System.Drawing.Point(22, 281);
+            this.CheckBoxMap.Location = new System.Drawing.Point(24, 168);
             this.CheckBoxMap.Name = "CheckBoxMap";
             this.CheckBoxMap.Size = new System.Drawing.Size(130, 21);
             this.CheckBoxMap.TabIndex = 10;
@@ -179,7 +168,7 @@
             // 
             this.CheckBoxGrid.AutoSize = true;
             this.CheckBoxGrid.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CheckBoxGrid.Location = new System.Drawing.Point(22, 308);
+            this.CheckBoxGrid.Location = new System.Drawing.Point(24, 195);
             this.CheckBoxGrid.Name = "CheckBoxGrid";
             this.CheckBoxGrid.Size = new System.Drawing.Size(226, 21);
             this.CheckBoxGrid.TabIndex = 11;
@@ -191,7 +180,7 @@
             // 
             this.CheckBoxGridView.AutoSize = true;
             this.CheckBoxGridView.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CheckBoxGridView.Location = new System.Drawing.Point(42, 335);
+            this.CheckBoxGridView.Location = new System.Drawing.Point(44, 222);
             this.CheckBoxGridView.Name = "CheckBoxGridView";
             this.CheckBoxGridView.Size = new System.Drawing.Size(199, 21);
             this.CheckBoxGridView.TabIndex = 12;
@@ -203,7 +192,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(19, 237);
+            this.label1.Location = new System.Drawing.Point(21, 124);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 17);
             this.label1.TabIndex = 13;
@@ -212,19 +201,21 @@
             // CutView
             // 
             this.CutView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CutView.Location = new System.Drawing.Point(22, 458);
+            this.CutView.Location = new System.Drawing.Point(24, 364);
             this.CutView.Name = "CutView";
             this.CutView.Size = new System.Drawing.Size(416, 33);
             this.CutView.TabIndex = 14;
             this.CutView.TabStop = false;
+            this.CutView.Visible = false;
             // 
             // SaveCoordinatesTextBtn
             // 
-            this.SaveCoordinatesTextBtn.Location = new System.Drawing.Point(22, 971);
+            this.SaveCoordinatesTextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SaveCoordinatesTextBtn.Location = new System.Drawing.Point(24, 809);
             this.SaveCoordinatesTextBtn.Name = "SaveCoordinatesTextBtn";
             this.SaveCoordinatesTextBtn.Size = new System.Drawing.Size(416, 45);
             this.SaveCoordinatesTextBtn.TabIndex = 15;
-            this.SaveCoordinatesTextBtn.Text = "Получить текст координат";
+            this.SaveCoordinatesTextBtn.Text = "Начать захват текста";
             this.SaveCoordinatesTextBtn.UseVisualStyleBackColor = true;
             this.SaveCoordinatesTextBtn.Click += new System.EventHandler(this.SaveCoordinatesTextBtn_Click);
             // 
@@ -247,7 +238,6 @@
             this.Controls.Add(this.ChooseImageFolderBtn);
             this.Controls.Add(this.StartMoveBtn);
             this.Controls.Add(this.GetAreaBtn);
-            this.Controls.Add(this.richTextBox1);
             this.Name = "MainWindow";
             this.ShowIcon = false;
             this.Text = "GCoordinates";
@@ -261,7 +251,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button GetAreaBtn;
         private System.Windows.Forms.Button StartMoveBtn;
         private System.Windows.Forms.Button ChooseImageFolderBtn;

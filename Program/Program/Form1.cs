@@ -236,14 +236,23 @@ namespace Program
             {
                 LabelImagePath.Text = "Текущая папка сохранения изображений: \n" + ImageFolderBrowser.SelectedPath;
                 StartMoveBtn.Enabled = true;
+                ClearImageFolderBtn.Enabled = true;
             }
         }
 
         private void ClearImageFolderBtn_Click(object sender, EventArgs e)
         {
-            var dirInfo = new DirectoryInfo(@ImageFolderBrowser.SelectedPath);
-            foreach (var file in dirInfo.GetFiles())
-                file.Delete();
+            try
+            {
+                var dirInfo = new DirectoryInfo(@ImageFolderBrowser.SelectedPath);
+                foreach (var file in dirInfo.GetFiles())
+                    file.Delete();
+            }
+            catch(SystemException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private Bitmap ResultBitmap = null;
